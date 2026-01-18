@@ -22,7 +22,7 @@ Singleton {
     }
 
     FileView {
-        path: `${Paths.state}/colors.json`
+        path: Paths.colorscheme
         watchChanges: true
         onFileChanged: reload()
         onLoaded: root.loadFromFile(text())

@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import qs.config
@@ -6,25 +7,60 @@ import qs.modules.bar.components
 RowLayout {
     id: root
 
-    // Left side
+    readonly property DelegateChooser mapper: DelegateChooser {
+        role: "id"
+
+        DelegateChoice {
+            roleValue: "osIcon"
+
+            delegate: Loader {
+                sourceComponent: OsIcon {}
+            }
+        }
+    }
+
+    // Left side margin
+    Item {
+      Layout.leftMargin: Appearance.padding.large
+    }
+
+    // Left side widgets
     Repeater {
+        id: repeaterLeft
+
+        model: BarWidgets.left
+        delegate: root.mapper
     }
 
-    // Middle
+    // Left side spacer
+    Item {
+        Layout.fillWidth: enabled
+    }
+
+    // Center widgets
     Repeater {
+        id: repeaterMiddle
+
+        model: BarWidgets.center
+        delegate: root.mapper
     }
 
-    // Right side
+    // Right side spacer
+    Item {
+        Layout.fillWidth: enabled
+    }
+
+    // Right side widgets
     Repeater {
+        id: repeaterRight
+
+        model: BarWidgets.right
+        delegate: root.mapper
     }
 
-    OsIcon {
-        Layout.leftMargin: Appearance.padding.large
-    }
-
-    Text {
-        text: "Hello World!"
-        color: Colorscheme.colors.m3onSurfaceVariant
+    // Right side margin
+    Item {
+        Layout.rightMargin: Appearance.padding.large
     }
 
 }
