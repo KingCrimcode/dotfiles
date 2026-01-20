@@ -44,15 +44,18 @@ Scope {
                 Rectangle {
                     id: barBackground
 
-                    color: Colorscheme.colors.m3surfaceContainer
                     anchors.fill: parent
+
+                    color: Colorscheme.colors.m3surfaceContainer
+                    opacity: 0.9
                 }
 
                 BarContent {
                     id: barContent
 
-                    implicitHeight: Appearance.sizes.barHeight
                     anchors.fill: parent
+
+                    implicitHeight: Appearance.sizes.barHeight
                 }
 
             }

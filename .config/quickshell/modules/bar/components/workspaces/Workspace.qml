@@ -30,9 +30,10 @@ Item {
     implicitWidth: root.buttonSize + (root.modelData.length ? root.modelData.length - 1 : 0) * (root.iconSize + root.spacing)
     implicitHeight: root.buttonSize
 
-    PointHandler {
-        onPointChanged: {
-            Hyprland.dispatch(`workspace ${root.index + 1}`)
+    TapHandler {
+        onPressedChanged: {
+            if (pressed && root.activeWorkspaceId !== root.index + 1) 
+              Hyprland.dispatch(`workspace ${root.index + 1}`)
         }
     }
 
