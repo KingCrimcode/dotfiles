@@ -56,13 +56,13 @@ Item {
                 startAngle: {
                     switch (root.cornerPlacement) {
                     case RoundCorner.CornerPlacement.TopLeft:
-                        return 180;
+                        return 180
                     case RoundCorner.CornerPlacement.TopRight:
-                        return 270;
+                        return 270
                     case RoundCorner.CornerPlacement.BottomLeft:
-                        return 90;
+                        return 90
                     case RoundCorner.CornerPlacement.BottomRight:
-                        return 0;
+                        return 0
                     }
                 }
                 sweepAngle: 90

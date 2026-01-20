@@ -14,13 +14,17 @@ Singleton {
     function loadFromFile(data: string): void {
         try {
             const widgets = JSON.parse(data);
+
+            left.clear()
+            center.clear()
+            right.clear()
+
             widgets.left.forEach(widget => left.append({id: widget}))
             widgets.center.forEach(widget => center.append({id: widget}))
             widgets.right.forEach(widget => right.append({id: widget}))
         } catch(e) {
             console.error("failed to parse widgets config:", e)
         }
-        console.log(left.count)
     }
 
     FileView {

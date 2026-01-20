@@ -36,7 +36,14 @@ Singleton {
 
     component Sizes: QtObject {
         readonly property real barHeight: 40
+        readonly property Workspace workspace : Workspace {}
         readonly property real hyprlandGapsOut: 7
+    }
+
+    component Workspace: QtObject {
+        readonly property real buttonSize: 28
+        readonly property real iconSize: 16
+        readonly property real spacing: 2
     }
 
 }
