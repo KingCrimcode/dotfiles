@@ -1,5 +1,6 @@
 {
   "left": ["osIcon", "workspaces"],
-  "center": [],
-  "right": ["bluetooth", "keyboard", "internet", "volume", "battery", "time"]
+  "center": ["media"],
+  "right": ["clock", "status"],
+  "status": ["volume", "bluetooth", "internet", "battery"]
 }

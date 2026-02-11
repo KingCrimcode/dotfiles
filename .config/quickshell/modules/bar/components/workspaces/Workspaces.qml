@@ -11,9 +11,10 @@ Item {
 
     readonly property int workspaceCount: 10
 
-    readonly property int buttonSize: Appearance.sizes.workspace.buttonSize
-    readonly property int iconSize: Appearance.sizes.workspace.iconSize
-    readonly property int spacing: Appearance.sizes.workspace.spacing
+    readonly property real containerHeight: Appearance.sizes.bar.containerHeight
+    readonly property real buttonSize: Appearance.sizes.bar.workspace.buttonSize
+    readonly property real iconSize: Appearance.sizes.bar.workspace.iconSize
+    readonly property real spacing: Appearance.sizes.bar.workspace.spacing
 
     readonly property int activeWorkspaceId: Hyprland.focusedWorkspace ? 
         Hyprland.focusedWorkspace.id : 1
@@ -41,22 +42,14 @@ Item {
         })
         return defaultSize + addedIconsSize
     }
-    implicitHeight: root.buttonSize + 3 * root.spacing
+    implicitHeight: containerHeight
 
     WheelHandler {
         onWheel: (event) => {
             if (event.angleDelta.y > 0) {
-                if (root.activeWorkspaceId < root.workspaceCount) {
-                    Hyprland.dispatch("workspace +1")
-                  } else {
-                    Hyprland.dispatch("workspace 1")
-                  }
+                Hyprland.dispatch("workspace e+1")
             } else {
-                if (root.activeWorkspaceId > 1) {
-                    Hyprland.dispatch("workspace -1")
-                  } else {
-                    Hyprland.dispatch(`workspace ${root.workspaceCount}`)
-                  }
+                Hyprland.dispatch("workspace e-1")
             }
         }
         acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad

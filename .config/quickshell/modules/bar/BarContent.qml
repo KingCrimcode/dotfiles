@@ -17,6 +17,7 @@ RowLayout {
             delegate: Loader {
                 sourceComponent: OsIcon {}
             }
+
         }
 
         DelegateChoice {
@@ -26,13 +27,24 @@ RowLayout {
                 sourceComponent: Workspaces {
                     Layout.fillHeight: true
                 }
+
+            }
+
+        }
+
+        DelegateChoice {
+            roleValue: "status"
+
+            delegate: Loader {
+                sourceComponent: StatusBar {}
             }
         }
+
     }
 
     // Left side margin
     Item {
-      Layout.leftMargin: Appearance.padding.large
+        Layout.leftMargin: Appearance.padding.large
     }
 
     // Left side widgets

@@ -12,7 +12,7 @@ Item {
 
     required property Component wsEffect
 
-    readonly property real iconSize: Appearance.sizes.workspace.iconSize
+    readonly property real iconSize: Appearance.sizes.bar.workspace.iconSize
 
     IconImage {
         id: icon
@@ -20,7 +20,7 @@ Item {
         anchors.centerIn: parent
         implicitSize: root.iconSize
 
-        source: IconFinder.find(root.modelData)
+        source: AppIconFinder.find(root.modelData)
 
         layer.enabled: true
         layer.effect: root.wsEffect

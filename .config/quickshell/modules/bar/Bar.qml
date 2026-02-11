@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
@@ -6,7 +8,9 @@ import qs.modules.common
 
 // Bar panel space allocation + background  + decorators
 Scope {
-    id: bar
+    id: root
+
+    readonly property real barHeight: Appearance.sizes.bar.height
 
     Variants {
         model: Quickshell.screens
@@ -17,8 +21,8 @@ Scope {
             required property ShellScreen modelData
             screen: modelData
 
-            exclusiveZone: Appearance.sizes.barHeight
-            implicitHeight: Appearance.sizes.barHeight + Appearance.rounding.screenRounding
+            exclusiveZone: root.barHeight
+            implicitHeight: root.barHeight + Appearance.rounding.screenRounding
             WlrLayershell.namespace: "quickshell:bar"
             color: "transparent"
 
@@ -32,7 +36,7 @@ Scope {
             Item {
                 id: barArea
 
-                implicitHeight: Appearance.sizes.barHeight
+                implicitHeight: root.barHeight
 
                 anchors {
                     top: parent.top
@@ -47,7 +51,7 @@ Scope {
                     anchors.fill: parent
 
                     color: Colorscheme.colors.m3surfaceContainer
-                    opacity: 0.9
+                    opacity: Appearance.misc.barOpacity
                 }
 
                 BarContent {
@@ -55,7 +59,7 @@ Scope {
 
                     anchors.fill: parent
 
-                    implicitHeight: Appearance.sizes.barHeight
+                    implicitHeight: root.barHeight
                 }
 
             }

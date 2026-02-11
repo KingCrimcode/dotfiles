@@ -9,6 +9,15 @@ Item {
     required property color color
     required property real size
     required property string iconName
+    property string iconPack: ""
+    readonly property string packDir: {
+        if (iconPack === "") {
+            return "";
+        }
+        else {
+            return `${iconPack}/`;
+        }
+    }
 
     implicitWidth: size
     implicitHeight: size
@@ -17,7 +26,7 @@ Item {
         id: iconImage
 
         anchors.fill: parent
-        source: `${Paths.icons}/${root.iconName}.svg`
+        source: `${Paths.icons}/${root.packDir}${root.iconName}.svg`
         implicitSize: root.size
     }
 

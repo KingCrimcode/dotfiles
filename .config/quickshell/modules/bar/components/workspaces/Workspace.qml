@@ -19,9 +19,9 @@ Item {
     readonly property bool isHovered: area.hovered
     readonly property bool isEmpty: root.modelData.length === 0
 
-    readonly property int buttonSize: Appearance.sizes.workspace.buttonSize
-    readonly property int iconSize: Appearance.sizes.workspace.iconSize
-    readonly property int spacing: Appearance.sizes.workspace.spacing
+    readonly property int buttonSize: Appearance.sizes.bar.workspace.buttonSize
+    readonly property int iconSize: Appearance.sizes.bar.workspace.iconSize
+    readonly property int spacing: Appearance.sizes.bar.workspace.spacing
 
     readonly property color color: root.isHovered ? Colorscheme.colors.m3primaryContainer
         : root.isActive ? Colorscheme.colors.m3secondaryContainer

@@ -12,29 +12,31 @@ Singleton {
     Connections {
         target: DesktopEntries
         function onApplicationsChanged() {
-            root.desktopEntriesVersion++
+            root.desktopEntriesVersion++;
         }
     }
 
     function getIcon(appName: string) : string {
         if (!appName || appName.length === 0)
-            return "image-missing"
+            return "image-missing";
 
-        desktopEntriesVersion
+        desktopEntriesVersion;
 
         const exactEntry = DesktopEntries.byId(appName);
-        if (exactEntry)
-            return exactEntry.icon
+        if (exactEntry) {
+            return exactEntry.icon;
+        }
 
         const heuristicEntry = DesktopEntries.heuristicLookup(appName);
-        if (heuristicEntry)
-            return heuristicEntry.icon
+        if (heuristicEntry) {
+            return heuristicEntry.icon;
+        }
 
-        return "application-x-executable"
+        return "application-x-executable";
     }
 
     function find(appName: string) : url {
-        return Quickshell.iconPath(root.getIcon(appName), true)
+        return Quickshell.iconPath(root.getIcon(appName), true);
     }
 
 }
