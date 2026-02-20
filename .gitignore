@@ -7,7 +7,8 @@
 /.config/nvim/lua/generated.lua
 /.config/yazi/theme.toml
 
+/.config/hypr/modules/api_keys.conf
+
 /.config/kitty/current-theme.conf
 /.config/nvim/lazy-lock.json
-
-/.config/hypr/modules/api_keys.conf
+/.config/zsh/.zcompdump

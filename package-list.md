@@ -25,6 +25,9 @@
 
 ### Utils
 * `brightnessctl`
+* `fzf`
+* fzf-tab
+    * zsh plugin, requires manual build
 * `hypridle`
 * `hyprlock`
 * `hyprshot`
@@ -35,12 +38,21 @@
 * `wl-clipboard`
 * `wlogout`
 * `xdg-user-dirs`
+* `yarn`
+    * needed for nvim markdown plugin
+* `zsh-autosuggestions`
+* `zsh-syntax-highlighting`
 
 ### Terminal apps
 * `btop`
+* `lsd`
+    * ls with colors
+* `fastfetch`
 * `neovim`
 * `yazi`
 
 ### GUI apps
 * `pavucontrol`
 * `rog-control-center`
+* `spotify-launcher`
+* `zen-browser-bin`
