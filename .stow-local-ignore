@@ -1,5 +1,6 @@
 # Custom
 /setup
+/package-list.md
 
 # Stow defaults
 
@@ -24,5 +25,3 @@ _darcs
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
-
-^/*.md
