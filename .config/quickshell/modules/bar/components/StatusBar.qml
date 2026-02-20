@@ -2,6 +2,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Bluetooth
 import qs.config
 import qs.modules.common
 
@@ -42,7 +43,15 @@ Item {
                 }
 
                 StatusItem {
-                    iconName: "bluetooth"
+                    iconName: {
+                        if (!Bluetooth.defaultAdapter?.enabled) {
+                            return "bluetooth-slash";
+                        } else if (Bluetooth.devices.values.some(d => d.connected)) {
+                            return "bluetooth-connected";
+                        } else {
+                            return "bluetooth";
+                        }
+                    }
                     popoutName: "bluetooth"
                 }
 

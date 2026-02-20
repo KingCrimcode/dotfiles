@@ -12,11 +12,11 @@ Singleton {
     function loadFromFile(data: string): void {
         const scheme = JSON.parse(data);
 
-        for (const [key, value] of Object.entries(scheme.colors)) {
+        for (const [key, value] of Object.entries(scheme)) {
             const camelKey = "m3" + key.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
 
             if (colors.hasOwnProperty(camelKey)) {
-                colors[camelKey] = value.default;
+                colors[camelKey] = value;
             }
         }
     }

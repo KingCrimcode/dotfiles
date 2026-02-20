@@ -50,7 +50,7 @@ Scope {
 
                     anchors.fill: parent
 
-                    color: Colorscheme.colors.m3surfaceContainer
+                    color: Colorscheme.colors.m3surfaceContainerLow
                     opacity: Appearance.misc.barOpacity
                 }
 

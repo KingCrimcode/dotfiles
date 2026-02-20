@@ -12,12 +12,28 @@ RowLayout {
         role: "id"
 
         DelegateChoice {
+            roleValue: "clock"
+
+            delegate: Loader {
+                sourceComponent: Clock {}
+            }
+        }
+
+        DelegateChoice {
             roleValue: "osIcon"
 
             delegate: Loader {
                 sourceComponent: OsIcon {}
             }
 
+        }
+
+        DelegateChoice {
+            roleValue: "status"
+
+            delegate: Loader {
+                sourceComponent: StatusBar {}
+            }
         }
 
         DelegateChoice {
@@ -30,14 +46,6 @@ RowLayout {
 
             }
 
-        }
-
-        DelegateChoice {
-            roleValue: "status"
-
-            delegate: Loader {
-                sourceComponent: StatusBar {}
-            }
         }
 
     }

@@ -7,7 +7,7 @@ import Quickshell
 Singleton {
     id: root
 
-    readonly property FontSettings font : FontSettings {}
+    readonly property FontConfig font : FontConfig {}
     readonly property Misc misc : Misc {}
     readonly property Padding padding : Padding {}
     readonly property Rounding rounding : Rounding {}
@@ -17,9 +17,14 @@ Singleton {
         readonly property real barOpacity: 0.9
     }
 
-    component FontSettings: QtObject {
-        readonly property string fontFamily: "JetBrains Mono"
+    component FontConfig: QtObject {
+        readonly property FontFamily family: FontFamily {}
         readonly property FontSize size: FontSize {}
+    }
+
+    component FontFamily: QtObject {
+        readonly property string sans: "Noto Sans"
+        readonly property string mono: "JetBrainsMono Nerd Font"
     }
 
     component FontSize: QtObject {
