@@ -1,2 +1,9 @@
 # Qml linter file
 .config/quickshell/.qmlls.ini
+/.config/fastfetch/config.jsonc
+/.config/hypr/modules/api_keys.conf
+/.config/kitty/current-theme.conf
+/.config/kitty/themes/Matugen.conf
+/.config/nvim/lua/generated.lua
+/.config/nvim/lazy-lock.json
+/.config/yazi/theme.toml

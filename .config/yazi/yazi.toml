@@ -1,0 +1,48 @@
+[mgr]
+show_hidden = true
+show_symlink = true
+linemode = "size"
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', desc = "Nvim", block = true, for = "linux" }
+]
+open = [
+  { run = 'xdg-open "$1"', desc = "Open", for = "linux" }
+]
+reveal = [
+  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux"},
+  { run = '''clear; exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+]
+play = [
+  { run = 'vlc "$@"', desc = "Play video", orphan = true, for = "linux" }
+]
+mount = [
+  { run = 'udiskie-mount "$@"', orphan = true, for = "linux" }
+]
+pdf_read = [
+  { run = 'zathura "$@"', desc = "PDF reader", orphan = true, for = "linux" }
+]
+browser = [
+  { run = '$BROWSER --new-window "$1"', desc = "Open in browser"}
+]
+
+[open]
+rules = [
+  # Folder
+	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+  # Text
+	{ mime = "text/*", use = [ "edit", "reveal" ] },
+  # Open pdfs
+  { name = "*.pdf", use = [ "pdf_read", "reveal" ] },
+  # Image
+	{ mime = "image/*", use = [ "browser", "reveal" ] },
+  # Video
+  { mime = "video/*", use = [ "play", "reveal" ] },
+  # Archive
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "extract", "reveal" ] },
+  # Mount iso
+  { name = "*.iso", use = [ "mount", "reveal" ] },
+  # Fallback
+	{ name = "*", use = [ "edit", "open", "reveal" ] },
+]

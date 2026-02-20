@@ -1,0 +1,59 @@
+require("base16-colorscheme").setup({
+	base00 = "{{colors.surface_container_lowest.default.hex}}",
+	base01 = "{{colors.surface_container.default.hex}}",
+	base02 = "{{colors.surface_container_highest.default.hex}}",
+	base03 = "{{colors.outline_variant.default.hex}}",
+	base04 = "{{colors.on_surface_variant.default.hex}}",
+	base05 = "{{colors.on_surface.default.hex}}",
+	base06 = "{{colors.inverse_on_surface.default.hex}}",
+	base07 = "{{colors.surface_bright.default.hex}}",
+
+	base08 = "{{colors.tertiary.default.hex | lighten: -5}}",
+	base09 = "{{colors.tertiary.default.hex}}",
+	base0A = "{{colors.secondary.default.hex}}",
+	base0B = "{{colors.primary.default.hex}}",
+	base0C = "{{colors.tertiary_container.default.hex}}",
+	base0D = "{{colors.primary_container.default.hex}}",
+	base0E = "{{colors.secondary_container.default.hex}}",
+	base0F = "{{colors.secondary.default.hex | lighten: -10}}",
+})
+
+vim.api.nvim_set_hl(0, "Visual", {
+	bg = "{{colors.primary_container.default.hex}}",
+	fg = "{{colors.background.default.hex}}",
+})
+
+local function set_hl_multiple(groups, value)
+	for _, v in pairs(groups) do
+		vim.api.nvim_set_hl(0, v, value)
+	end
+end
+
+set_hl_multiple({ "String", "TSString" }, {
+	fg = "{{colors.tertiary.default.hex | lighten: -15.0 }}",
+})
+
+set_hl_multiple({ "TSComment", "Comment" }, {
+	fg = "{{colors.outline.default.hex}}",
+	italic = true,
+})
+
+set_hl_multiple({ "TSMethod", "Method" }, {
+	fg = "{{colors.tertiary.default.hex}}",
+})
+
+set_hl_multiple({ "TSFunction", "Function", "DiagnosticWarn" }, {
+	fg = "{{colors.secondary.default.hex}}",
+})
+
+set_hl_multiple({ "DiagnosticUnderlineWarn", "DiagnosticUnderlineWarning" }, {
+	cterm = {
+		undercurl = true,
+	},
+	sp = "{{colors.secondary.default.hex}}",
+	undercurl = true,
+})
+
+set_hl_multiple({ "Keyword", "TSKeyword", "TSKeywordFunction", "TSRepeat" }, {
+	fg = "{{colors.inverse_primary.default.hex}}",
+})
